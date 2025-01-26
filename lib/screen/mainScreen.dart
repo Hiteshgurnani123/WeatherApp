@@ -10,7 +10,7 @@ class mainScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 150,
+            height: 80,
           ),
           Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -22,24 +22,20 @@ class mainScreen extends StatelessWidget {
             padding: EdgeInsets.all(10),
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 243, 239, 232),
+                color: Color(0xffbca47a),
                 border: Border.all(color: Colors.grey, width: 1.5),
                 borderRadius: BorderRadius.circular(8)),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(left: 2),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Now",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                          ],
+                        Text(
+                          "Now",
+                          style: TextStyle(fontSize: 14),
                         ),
                         Row(
                           children: [
@@ -62,8 +58,13 @@ class mainScreen extends StatelessWidget {
                     ),
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("Parity Cloudy"),
+                      Text(
+                        "Parity Cloudy",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w400),
+                      ),
                       Text("parcip : 20%"),
                       Text("Humidity : 77%"),
                       Text("Wind : 8km/h"),
@@ -72,21 +73,49 @@ class mainScreen extends StatelessWidget {
                 ]),
           ),
           Container(
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Color(0xffbca47a),
+                border: Border.all(color: Colors.grey, width: 1.5),
+                borderRadius: BorderRadius.circular(8)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("In Next 12 Hours"),
+                Text(
+                  "In Next 12 Hours",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 SizedBox(
                   height: 75,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 100,
                     itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Text("11am"),
-                          Icon(Icons.cloud),
-                          Text("29"),
-                        ],
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 7, vertical: 2),
+                        child: Column(
+                          children: [
+                            Text(
+                              "11am",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w600),
+                            ),
+                            Icon(Icons.cloud),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "29",
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -95,21 +124,50 @@ class mainScreen extends StatelessWidget {
             ),
           ),
           Container(
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Color(0xffbca47a),
+                border: Border.all(color: Colors.grey, width: 1.5),
+                borderRadius: BorderRadius.circular(8)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("In Next 5 Days"),
+                Text(
+                  "In Next 5 Days",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 SizedBox(
                   height: 75,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Text("11am"),
-                          Icon(Icons.cloud),
-                          Text("29"),
-                        ],
+                      // ignore: prefer_const_constructors
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 7, vertical: 2),
+                        child: Column(
+                          children: [
+                            Text(
+                              "11am",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w600),
+                            ),
+                            Icon(Icons.cloud),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "29",
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -117,7 +175,11 @@ class mainScreen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(onPressed: () {}, child: Text("Accuweather")),
               ElevatedButton(onPressed: () {}, child: Text("More Details")),
