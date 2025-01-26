@@ -7,31 +7,69 @@ class mainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Location , state"),
+          SizedBox(
+            height: 150,
+          ),
+          Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                "Location , state",
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              )),
           Container(
-            child: Row(children: [
-              Column(
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 243, 239, 232),
+                border: Border.all(color: Colors.grey, width: 1.5),
+                borderRadius: BorderRadius.circular(8)),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Now"),
-                  Row(
-                    children: [
-                      Text("29"),
-                      Icon(Icons.cloud),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Now",
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "29",
+                              style: TextStyle(
+                                  fontSize: 50, fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.cloud,
+                              size: 45,
+                            ),
+                          ],
+                        ),
+                        Text("RealFeel 36"),
+                      ],
+                    ),
                   ),
-                  Text("RealFeel")
-                ],
-              ),
-              Column(
-                children: [
-                  Text("Parity Cloudy"),
-                  Text("parcip : 20%"),
-                  Text("Humidity : 77%"),
-                  Text("Wind : 8km/h"),
-                ],
-              )
-            ]),
+                  Column(
+                    children: [
+                      Text("Parity Cloudy"),
+                      Text("parcip : 20%"),
+                      Text("Humidity : 77%"),
+                      Text("Wind : 8km/h"),
+                    ],
+                  )
+                ]),
           ),
           Container(
             child: Column(
@@ -64,7 +102,7 @@ class mainScreen extends StatelessWidget {
                   height: 75,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 100,
+                    itemCount: 5,
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
@@ -78,6 +116,12 @@ class mainScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Row(
+            children: [
+              ElevatedButton(onPressed: () {}, child: Text("Accuweather")),
+              ElevatedButton(onPressed: () {}, child: Text("More Details")),
+            ],
           )
         ],
       ),
