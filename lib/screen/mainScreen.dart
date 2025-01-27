@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-class mainScreen extends StatelessWidget {
-  const mainScreen({Key? key}) : super(key: key);
+class mainScreen extends StatefulWidget {
+  mainScreen({Key? key}) : super(key: key);
+
+  @override
+  State<mainScreen> createState() => _mainScreenState();
+}
+
+class _mainScreenState extends State<mainScreen> {
+  String apikey = "eadBUtSe5FKMS0gzib1FOnymdq4UkDB0";
+
+  FetchCurrentCond() async {
+    final url =
+        'http://dataservice.accuweather.com/currentconditions/v1/205617?apikey=$apikey';
+    final res = await http.get(Uri.parse(url));
+    print(res.body);
+  }
+
+  int temperature = 0;
+
+  int WeatherIconKey = 0;
+
+  String WeatherText = "";
+
+  double RealFeel = 0;
+
+  double windSpeed = 0;
+
+  int uvIndex = 0;
+
+  int Humidity = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FetchCurrentCond();
+  }
 
   @override
   Widget build(BuildContext context) {
